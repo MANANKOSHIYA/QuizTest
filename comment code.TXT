@@ -1,0 +1,82 @@
+onNext() {
+    if(this.currentquestionID < this.questions.length) {
+      this.currentquestionID++;
+    }
+
+    this.displaynextquestion()
+  }
+
+  displaynextquestion(){
+    const storedColors = JSON.parse(localStorage.getItem('Questions') || '[]');
+    let NextQuestion = storedColors.find((questions: { id: number; }) => questions.id === this.currentquestionID);
+
+    if (NextQuestion) {
+      this.id = NextQuestion.id;
+      this.quesTitle = NextQuestion.quesTitle;
+      this.opt1 = NextQuestion.opt1;
+      this.opt2 = NextQuestion.opt2;
+      this.opt3 = NextQuestion.opt3;
+      this.opt4 = NextQuestion.opt4;
+
+    }
+  }
+
+  onNext() {
+    const storedQuestions = JSON.parse(localStorage.getItem('Questions') || '[]');
+    let currentIndex = storedQuestions.findIndex((question: { id: number; }) => question.id === this.id);
+
+    if (currentIndex !== -1 && currentIndex + 1 < storedQuestions.length) {
+      let nextQuestion = storedQuestions[currentIndex + 1];
+
+      this.id = nextQuestion.id;
+      this.quesTitle = nextQuestion.quesTitle;
+      this.opt1 = nextQuestion.opt1;
+      this.opt2 = nextQuestion.opt2;
+      this.opt3 = nextQuestion.opt3;
+      this.opt4 = nextQuestion.opt4;
+    } else {
+      console.log("No more questions available.");
+    }
+
+    // Incrementing the id
+    // this.id++;
+  }
+
+
+onClickAns(selectedOption: string) {
+
+    this.selectedAns.push({
+      id: this.AnsId + 1,
+      SelectedOption: selectedOption,
+    })
+
+    this.AnsId++;
+    console.log("Current AnsId:", this.AnsId);
+    console.log("Selected Answers:", this.selectedAns);
+
+    localStorage.setItem('Selected Ans.', JSON.stringify(this.selectedAns));
+  }
+
+
+    <!-- <div class="q-ans" >
+                            <label class="d-flex" (click)="onClickAns()">
+                                <input type="radio" id="opt1" name="fav_language" value="opt1">
+                                <h4> {{opt1}}</h4>
+                            </label><br>
+
+                            <label class="d-flex" (click)="onClickAns()">
+                                <input type="radio" id="opt2" name="fav_language" value="opt2">
+                                <h4> {{opt2}}</h4>
+                            </label><br>
+
+                            <label class="d-flex" (click)="onClickAns()">
+                                <input type="radio" id="opt3" name="fav_language" value="opt3">
+                                <h4> {{opt3}}</h4>
+                            </label><br>
+
+                            <label class="d-flex" (click)="onClickAns()">
+                                <input type="radio" id="opt4" name="fav_language" value="opt4">
+                                <h4> {{opt4}}</h4>
+                            </label><br>
+
+                        </div> -->

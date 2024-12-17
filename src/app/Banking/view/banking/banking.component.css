@@ -1,0 +1,47 @@
+.quiz-title{
+    text-align: center;
+    margin-top: 85px;
+    margin-bottom: 50px;
+
+}
+.q-qes, .q-ans{
+    margin-bottom: 30px;
+
+}
+.q-div{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.q-next a button {
+    background-color: #e0d7d7;
+    padding: 3px 20px;
+    border-radius: 12px;
+}
+
+.q-next a {
+    text-decoration: none;
+
+}
+.q-ans h4{
+    margin-left: 10px;
+}
+
+.q-opt{
+    display: flex;
+    justify-content: space-between;
+}
+
+.brd-opt{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 45%;
+}
+/* 
+.quiz-dtl {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 45px;
+} */

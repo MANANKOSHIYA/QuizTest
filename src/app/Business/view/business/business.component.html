@@ -1,0 +1,73 @@
+<div class="result">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12  text-center mt-3">
+                <div class="result-title">
+                    <h1>RESULT</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+
+                    <div class="crt-ans mt-3">
+                        <h2>{{crtAns}} {{trueCounter}}</h2>
+                    </div>
+
+                    <div class="wrg-ans">
+                        <h2>{{wrgAns}} {{falseCounter}}</h2>
+                    </div>
+
+                    <div class="rst-btn mt-5">
+                        <!-- <button class="me-3" (click)="checkTheAns()">Check Result</button> -->
+                        <button (click)="DisplayTheAns()">Review Answer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <div class="quiz-dtl mt-5" *ngFor="let showAllAns of Answer">
+                        <div class="q-qes">
+                            <h2>Q {{showAllAns.id}}. {{showAllAns.quesTitle}} </h2>
+                        </div>
+                        <div class="q-ans">
+                            <div class="opt">
+
+                                <div class="brd-opt"
+                                    [style.background-color]="showAllAns.opt1 ===showAllAns.correctOPT ? correctColor : showAllAns.opt1 === showAllAns.selectedAns ? wrongColor : whiteColor">
+                                    <h4>A. {{showAllAns.opt1}}</h4>
+                                </div>
+
+                                <div class="brd-opt"
+                                    [style.background-color]="showAllAns.opt2 === showAllAns.correctOPT ? correctColor : showAllAns.opt2 === showAllAns.selectedAns ? wrongColor : whiteColor">
+                                    <h4>B. {{showAllAns.opt2}}</h4>
+                                </div>
+
+                            </div>
+
+                            <div class="opt mt-3">
+
+                                <div class="brd-opt"
+                                    [style.background-color]="showAllAns.opt3 === showAllAns.correctOPT ? correctColor : showAllAns.opt3 === showAllAns.selectedAns ? wrongColor : whiteColor">
+                                    <h4>C. {{showAllAns.opt3}}</h4>
+                                </div>
+
+                                <div class="brd-opt"
+                                    [style.background-color]="showAllAns.opt4 === showAllAns.correctOPT ? correctColor : showAllAns.opt4 === showAllAns.selectedAns ? wrongColor : whiteColor">
+                                    <h4>D. {{showAllAns.opt4}}</h4>
+                                </div>
+
+                            </div>
+
+                            <!-- <div class="ans-show ">
+                                <h4>{{crtAns}} {{showAllAns.correctOPT}}</h4>
+                                <h4>{{slctAns}} {{showAllAns.selectedAns}}</h4>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
